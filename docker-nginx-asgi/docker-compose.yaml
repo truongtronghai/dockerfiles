@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  nginx4asgi:
+    image: nginx4asgi
+    ports:
+      - "9000:80"
+    container_name: nginx4asgi_container
+    networks:
+      network1:
+        
+    links:
+      - asgidj
+    
+  asgidj:
+    image: newasgidj
+    ports:
+      - "9001:8000"
+    container_name: asgidj_container
+    networks:
+      network1:
+
+networks:
+  network1:
+    name: asgidjnet
